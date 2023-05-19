@@ -18,11 +18,6 @@
         </div>
         <ul class="nav-list">
           <li>
-              <i class='bx bx-search' ></i>
-             <input type="text" placeholder="Search...">
-             <span class="tooltip">Search</span>
-          </li>
-          <li>
             <a href="#">
               <i class='bx bx-grid-alt'></i>
               <span class="links_name">Dashboard</span>
@@ -83,7 +78,7 @@
                <img src="{{asset('/images/Logo.png')}}" alt="Logo">
                <div class="name_job">
                  <div class="name">{{auth()->user()->name}}</div>
-                 <div class="job">Web designer</div>
+                 <div class="job">Admin</div>
                </div>
              </div>
              <i class='bx bx-log-out' id="log_out" ></i>

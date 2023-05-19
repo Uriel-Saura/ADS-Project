@@ -41,7 +41,7 @@ class CatalogoController extends Controller
     {
         $request->validate([
             'Clave' => 'required|unique:catalogos|max:10',
-            'Tipo' => 'required|max:50',
+            'Tipo' => 'required|unique:catalogos|max:50',
             'Area' => 'required|max:50',
             'Caracteristicas' => 'required|max:50',
             'Costo' => 'required|max:10'

@@ -12,7 +12,7 @@
         @csrf
         <div class="camp">
             <label for="Clave">Clave</label>  
-            <input type="text" name="Clave" id="Clave" value="{{old ('Clave')}}" >
+            <input type="text" name="Clave" id="Clave" value="{{old ('Clave')}}" required>
         </div>
         <div class="camp">
             <label for="Tipo">Tipo</label>  
