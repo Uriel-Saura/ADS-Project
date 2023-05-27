@@ -7,7 +7,6 @@
     <title>Estimacion</title>
 </head>
 <body>
-    <h1>Hola estimacion</h1>
     <button class="new"><a href="{{url('estimacion/create')}}">Nuevo Estimacion</a></button>
     <table>
         <thead>

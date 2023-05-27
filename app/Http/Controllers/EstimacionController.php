@@ -83,7 +83,7 @@ class EstimacionController extends Controller
     public function edit($id)
     {
         $estimaciones = Estimacion::find($id);
-        return view('estimacion.edit',['estimaciones' => $estimaciones, 'catalogos' => Catalogo::all()]);
+        return view('estimacion.edit',['estimacion' => $estimaciones, 'catalogos' => Catalogo::all()]);
     }
 
     /**

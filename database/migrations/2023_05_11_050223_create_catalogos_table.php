@@ -15,11 +15,11 @@ class CreateCatalogosTable extends Migration
     {
         Schema::create('catalogos', function (Blueprint $table) {
             $table->id();
-            $table->string('Clave',10)->unique();
-            $table->string('Tipo',50)->unique();
-            $table->string('Area',50);
+            $table->string('Clave',15)->unique();
+            $table->string('Tipo',50);
+            $table->float('Area',15);
             $table->string('Caracteristicas',50);
-            $table->float('Costo',10);
+            $table->float('Costo',15);
             $table->timestamps();
         });
     }

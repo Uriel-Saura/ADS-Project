@@ -18,60 +18,61 @@
         </div>
         <ul class="nav-list">
           <li>
-            <a href="#">
-              <i class='bx bx-grid-alt'></i>
-              <span class="links_name">Dashboard</span>
+            <a href="{{url('home/')}}">
+                <i class='bx bx-home' ></i>
+              <span class="links_name">Home</span>
             </a>
-             <span class="tooltip">Dashboard</span>
+             <span class="tooltip">Home</span>
           </li>
           <li>
+            <a href="{{url('catalogo/')}}">
+              <i class='bx bxs-book-content'></i>
+              <span class="links_name">Catalogo</span>
+            </a>
+            <span class="tooltip">Catalogo</span>
+          </li>
+         <li>
            <a href="#">
-             <i class='bx bx-user' ></i>
-             <span class="links_name">User</span>
+            <i class='bx bxs-circle'></i>
+             <span class="links_name"></span>
            </a>
-           <span class="tooltip">User</span>
+           <span class="tooltip"></span>
          </li>
          <li>
            <a href="#">
-             <i class='bx bx-chat' ></i>
-             <span class="links_name">Messages</span>
+            <i class='bx bxs-circle'></i>
+             <span class="links_name"></span>
            </a>
-           <span class="tooltip">Messages</span>
+           <span class="tooltip"></span>
          </li>
          <li>
            <a href="#">
-             <i class='bx bx-pie-chart-alt-2' ></i>
-             <span class="links_name">Analytics</span>
+            <i class='bx bxs-circle'></i>
+             <span class="links_name"></span>
            </a>
-           <span class="tooltip">Analytics</span>
+           <span class="tooltip"></span>
          </li>
          <li>
            <a href="#">
-             <i class='bx bx-folder' ></i>
-             <span class="links_name">File Manager</span>
+            <i class='bx bxs-circle'></i>
+             <span class="links_name"></span>
            </a>
-           <span class="tooltip">Files</span>
+           <span class="tooltip"></span>
+         </li>
+         <li>
+          <a href="#">
+           <i class='bx bxs-circle'></i>
+            <span class="links_name"></span>
+          </a>
+          <span class="tooltip"></span>
+        </li>
          </li>
          <li>
            <a href="#">
-             <i class='bx bx-cart-alt' ></i>
-             <span class="links_name">Order</span>
+            <i class='bx bxs-circle'></i>
+             <span class="links_name"></span>
            </a>
-           <span class="tooltip">Order</span>
-         </li>
-         <li>
-           <a href="#">
-             <i class='bx bx-heart' ></i>
-             <span class="links_name">Saved</span>
-           </a>
-           <span class="tooltip">Saved</span>
-         </li>
-         <li>
-           <a href="#">
-             <i class='bx bx-cog' ></i>
-             <span class="links_name">Setting</span>
-           </a>
-           <span class="tooltip">Setting</span>
+           <span class="tooltip"></span>
          </li>
          <li class="profile">
              <div class="profile-details">
@@ -81,12 +82,15 @@
                  <div class="job">Admin</div>
                </div>
              </div>
-             <i class='bx bx-log-out' id="log_out" ></i>
+             <a href="/logout">
+              <i class='bx bx-log-out' id="log_out"></i>
+              <span class="links_name">Log Out</span>
+            </a>
          </li>
         </ul>
       </div>
       <section class="home-section">
-        <div class="text">Dashboard</div>
+        <div class="text">Home</div>
     </section>
     <script src="{{asset('/js/home.js')}}"></script>
     @endauth
