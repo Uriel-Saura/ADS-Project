@@ -505,6 +505,7 @@ class ComposerStaticInitea81ee55538af1db53b7c83dfcec4553
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\CatalogoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CatalogoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EstimacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstimacionController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LogOutController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogOutController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',

@@ -37,28 +37,28 @@
             </div>
             <div class="input-box">
                 <label for="Anterior">Anterior</label>  
-                <input type="text" name="Anterior" id="Anterior" value="{{$estimacion->Anterior}}"
+                <input type="text" name="Anterior" id="Anterior" value="{{$estimacion->Actual}}"
                 required>
             </div>
             <div class="input-box">
                 <label for="Actual">Actual</label>  
-                <input type="text" name="Actual" id="Actual" value="{{$estimacion->Actual}}" required>
+                <input type="text" name="Actual" id="Actual" value="" required>
             </div>
             <div class="input-box">
                 <label for="Total">Total</label>  
-                <input type="text" name="Total" id="Total" value="{{$estimacion->Total + $estimacion->Actual}}" required>
+                <input type="text" name="Total" id="Total" value="{{$estimacion->Total}}" required>
             </div>
             <div class="input-box">
                 <label for="Faltante">Faltante</label>  
-                <input type="text" name="Faltante" id="Faltante" value="{{$buscata->Area - $estimacion->Total - $estimacion->Actual}}" required>
+                <input type="text" name="Faltante" id="Faltante" value="{{$estimacion->Faltante}}" required>
             </div>  
             <div class="input-box">
                 <label for="Unitario">Precio</label>  
-                <input type="text" name="Unitario" id="Unitario" value="{{$buscata->Costo}}"required>
+                <input type="text" name="Unitario" id="Unitario" value="{{$buscata->Costo}}" required>
             </div> 
             <div class="input-box">
                 <label for="Importe">Importe</label>  
-                <input type="text" name="Importe" id="Importe" value="{{$estimacion->Actual * $buscata->Costo}}" required>
+                <input type="text" name="Importe" id="Importe" value="{{$estimacion->Importe}}" required>
             </div> 
         <button class="regresar"><a href="{{url('estimacion')}}">Regresar</a></button>
         <button type="submit" class="save">Guardar</button>

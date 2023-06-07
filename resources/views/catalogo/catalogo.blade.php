@@ -32,13 +32,13 @@
           </a>
           <span class="tooltip">Catalogo</span>
         </li>
-       <li>
-         <a href="#">
-          <i class='bx bxs-circle'></i>
-           <span class="links_name"></span>
-         </a>
-         <span class="tooltip"></span>
-       </li>
+        <li>
+        <a href="{{url('estimacion/')}}">
+            <i class='bx bx-book-alt'></i>
+          <span class="links_name">Estimacion</span>
+        </a>
+        <span class="tooltip">EStimacion</span>
+      </li>
        <li>
          <a href="#">
           <i class='bx bxs-circle'></i>

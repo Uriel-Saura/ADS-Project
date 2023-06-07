@@ -15,21 +15,18 @@ class CreateEstimacionsTable extends Migration
     public function up()
     {
         Schema::create('estimacions', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_catalogo');
-            $table->string('Cantidad',10);
-            $table->float('Anterior',5);
-            $table->float('Actual',5);
-            $table->float('Total',5);
-            $table->float('Faltante',5);
-            $table->float('Unitario',10);
-            $table->float('Importe',15); 
+            $table->unsignedBigInteger('id')->primary();
+            $table->string('Concepto',50)->nullable();
+            $table->string('Cantidad',10)->nullable();
+            $table->float('Anterior',10)->nullable();
+            $table->float('Actual',10)->nullable();
+            $table->float('Total',10)->nullable();
+            $table->float('Faltante',10)->nullable();
+            $table->float('Unitario',20)->nullable();
+            $table->float('Importe',30)->nullable(); 
+            $table->float('id_catalogo',5)->nullable();
             $table->timestamps();
 
-        });
-
-        Schema::table('estimacions', function (Blueprint $table) {
-            $table->foreign('id_catalogo')->references('id')->on('catalogos');
         });
     }  
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\EstimacionController;
+use App\Http\Controllers\RelacionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,10 @@ Route::get('/home', [HomeController::class,'index']);
 
 Route::get('/logout', [LogOutController::class,'logout']);
 
+
 Route::resource('/catalogo', CatalogoController::class);
 
 Route::resource('/estimacion', EstimacionController::class);
+Route::get('/estimacion/{id}/{Concepto}/edit', [EstimacionController::class, 'edit']);
+Route::get('/estimacion/{id}/{Concepto}/preEdit', [EstimacionController::class, 'preEdit']);
+Route::get('/estimacion/{id}/{Concepto}/editActual', [EstimacionController::class, 'editActual']);

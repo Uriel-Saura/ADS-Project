@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalogo;
 use App\Models\Estimacion;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\HttpCache\Esi;
+use PhpParser\Node\Expr\FuncCall;
 
 class EstimacionController extends Controller
 {
@@ -16,51 +16,61 @@ class EstimacionController extends Controller
      */
     public function index()
     {
-        $estimaciones = Estimacion::all();
-        return view('estimacion.estimacion',['estimacion'=> $estimaciones]);
+        $estimacion = Estimacion::all();
+        $cata = Catalogo::all();
+        return view('estimacion.estimacion',compact('estimacion','cata'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \App\Models\Catalogo  $cata
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('estimacion.create',['catalogos' => Catalogo::all()]);
+        $cata = Catalogo::all();
+        return view('estimacion.create',compact('cata'));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
+     * @param  \App\Models\Estimacion  $estimacion
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $request->validate([
+            'id'=>'required',
             'Concepto' => 'required|max:50',
-            'Cantidad' => 'required|max:10',
-            'Anterior' => 'required|max:10',
             'Actual' => 'required|max:10',
-            'Total' => 'required|max:10',
-            'Faltante' => 'required|max:10',
-            'Unitario' => 'required|max:10',
-            'Cantidad' => 'required|max:15',
         ]);
 
         $estimaciones = new Estimacion();
+        $estimaciones->id = $request->input('id');
+        $estimaciones->Concepto = $request->input('Concepto');
+        $estimaciones->Actual = $request->input('Actual');     
         $estimaciones->id_catalogo = $request->input('Concepto');
-        $estimaciones->Cantidad = $request->input('Cantidad');
-        $estimaciones->Anterior = $request->input('Anterior');  
-        $estimaciones->Actual = $request->input('Actual');  
-        $estimaciones->Total = $request->input('Total');  
-        $estimaciones->Faltante = $request->input('Faltante');
-        $estimaciones->Unitario = $request->input('Unitario');
-        $estimaciones->Importe = $request->input('Importe');           
         $estimaciones->save();
 
         return view("estimacion.message",['msg'=>"Registro Guardado"]);
+    }
+
+     /**
+     * @param  \App\Models\Estimacion  $estimacion
+     * @return \Illuminate\Http\Response
+     */
+
+    public function preEdit($id, $id_catalogo){
+        $estimaciones = Estimacion::find($id);
+        $buscata = Catalogo::find($id_catalogo);
+        return view('estimacion.preEdit',['estimacion' => $estimaciones, 'buscata' => $buscata]);
+    }
+
+    public function editActual($id, $id_catalogo){
+        $estimaciones = Estimacion::find($id);
+        $buscata = Catalogo::find($id_catalogo);
+        return view('estimacion.editActual',['estimacion' => $estimaciones, 'buscata' => $buscata]);
     }
 
     /**
@@ -76,14 +86,14 @@ class EstimacionController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  \App\Models\Estimacion  $estimacion
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $id_catalogo)
     {
         $estimaciones = Estimacion::find($id);
-        return view('estimacion.edit',['estimacion' => $estimaciones, 'catalogos' => Catalogo::all()]);
+        $buscata = Catalogo::find($id_catalogo);
+        return view('estimacion.edit',['estimacion' => $estimaciones, 'buscata' => $buscata]);
     }
 
     /**
@@ -96,6 +106,7 @@ class EstimacionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'id'  => 'required',
             'Concepto' => 'required|max:50',
             'Cantidad' => 'required|max:10',
             'Anterior' => 'required|max:10',
@@ -103,11 +114,12 @@ class EstimacionController extends Controller
             'Total' => 'required|max:10',
             'Faltante' => 'required|max:10',
             'Unitario' => 'required|max:10',
-            'Cantidad' => 'required|max:15',
+            'Importe' => 'required|max:15',
         ]);
 
         $estimaciones = Estimacion::find($id);
-        $estimaciones->id_catalogo = $request->input('Concepto');
+        $estimaciones->id = $request->input('id');
+        $estimaciones->Concepto = $request->input('Concepto');
         $estimaciones->Cantidad = $request->input('Cantidad');
         $estimaciones->Anterior = $request->input('Anterior');  
         $estimaciones->Actual = $request->input('Actual');  
