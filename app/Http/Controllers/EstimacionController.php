@@ -47,10 +47,17 @@ class EstimacionController extends Controller
         ]);
 
         $estimaciones = new Estimacion();
+        $cata = Catalogo::find($request->input('Concepto'));
         $estimaciones->id = $request->input('id');
-        $estimaciones->Concepto = $request->input('Concepto');
-        $estimaciones->Actual = $request->input('Actual');     
+        $estimaciones->Concepto = $cata->Tipo;
+        $estimaciones->Cantidad = $cata->Area;
+        $estimaciones->Anterior = '0';
+        $estimaciones->Actual = $request->input('Actual'); 
+        $estimaciones->Faltante =  $cata->Area - $request->input('Actual');
+        $estimaciones->Total = $request->input('Actual'); 
+        $estimaciones->Unitario = $cata->Costo;   
         $estimaciones->id_catalogo = $request->input('Concepto');
+        $estimaciones->Importe = $request->input('Actual') * $cata->Costo;
         $estimaciones->save();
 
         return view("estimacion.message",['msg'=>"Registro Guardado"]);
@@ -60,12 +67,6 @@ class EstimacionController extends Controller
      * @param  \App\Models\Estimacion  $estimacion
      * @return \Illuminate\Http\Response
      */
-
-    public function preEdit($id, $id_catalogo){
-        $estimaciones = Estimacion::find($id);
-        $buscata = Catalogo::find($id_catalogo);
-        return view('estimacion.preEdit',['estimacion' => $estimaciones, 'buscata' => $buscata]);
-    }
 
     public function editActual($id, $id_catalogo){
         $estimaciones = Estimacion::find($id);
@@ -108,25 +109,20 @@ class EstimacionController extends Controller
         $request->validate([
             'id'  => 'required',
             'Concepto' => 'required|max:50',
-            'Cantidad' => 'required|max:10',
-            'Anterior' => 'required|max:10',
             'Actual' => 'required|max:10',
-            'Total' => 'required|max:10',
-            'Faltante' => 'required|max:10',
-            'Unitario' => 'required|max:10',
-            'Importe' => 'required|max:15',
         ]);
 
         $estimaciones = Estimacion::find($id);
         $estimaciones->id = $request->input('id');
         $estimaciones->Concepto = $request->input('Concepto');
-        $estimaciones->Cantidad = $request->input('Cantidad');
-        $estimaciones->Anterior = $request->input('Anterior');  
+        $cata = Catalogo::find($request->input('id_catalogo'));
+        $estimaciones->Cantidad = $cata->Area;
+        $estimaciones->Anterior = $estimaciones->Actual;
         $estimaciones->Actual = $request->input('Actual');  
-        $estimaciones->Total = $request->input('Total');  
-        $estimaciones->Faltante = $request->input('Faltante');
-        $estimaciones->Unitario = $request->input('Unitario');
-        $estimaciones->Importe = $request->input('Importe');           
+        $estimaciones->Total =  $estimaciones->Total + $request->input('Actual');  
+        $estimaciones->Faltante = $cata->Area - $estimaciones->Total - $request->input('Actual');  
+        $estimaciones->Unitario = $cata->Costo;
+        $estimaciones->Importe =  $cata->Costo * $request->input('Actual');
         $estimaciones->save();
 
         return view("estimacion.message",['msg'=>"Registro Modificado"]);

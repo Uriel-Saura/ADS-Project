@@ -39,5 +39,3 @@ Route::resource('/catalogo', CatalogoController::class);
 
 Route::resource('/estimacion', EstimacionController::class);
 Route::get('/estimacion/{id}/{Concepto}/edit', [EstimacionController::class, 'edit']);
-Route::get('/estimacion/{id}/{Concepto}/preEdit', [EstimacionController::class, 'preEdit']);
-Route::get('/estimacion/{id}/{Concepto}/editActual', [EstimacionController::class, 'editActual']);

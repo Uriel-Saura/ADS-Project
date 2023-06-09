@@ -124,9 +124,7 @@
                         <td>{{$estimacion->Faltante}}m2</td>
                         <td>${{$estimacion->Unitario}}</td>
                         <td>${{$estimacion->Importe}}</td>
-                        <td><a href="{{url('estimacion/'.$estimacion->id. '/'. $estimacion->id_catalogo.'/edit')}}">Actualizar</a></td>
-                        <td><a href="{{url('estimacion/'.$estimacion->id. '/'.$estimacion->id_catalogo.'/preEdit')}}">Automatico</a></td>
-                        <td><a href="{{url('estimacion/'.$estimacion->id. '/'.$estimacion->id_catalogo.'/editActual')}}">Editar</a></td>
+                        <td><a href="{{url('estimacion/'.$estimacion->id. '/'. $estimacion->id_catalogo.'/edit')}}">Editar</a></td>
                         <td>
                             <form action="{{url('estimacion/'.$estimacion->id)}}" method="post">
                                 @method("DELETE")
