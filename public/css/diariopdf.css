@@ -1,0 +1,13 @@
+body.title{
+    font-size: large;
+    font-family:sans-serif;
+    color: #51aebf;
+    margin-top: 50px;
+}
+
+body.p{
+    margin-top: 20px;
+    margin-left: 20px;
+    color:#0c34c5;
+}
+

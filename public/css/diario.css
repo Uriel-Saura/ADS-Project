@@ -1,0 +1,21 @@
+body{
+    font-family: sans-serif;
+}
+
+input.boton{
+    align-items: center;
+    color: white;
+    background-color: #51aebf;
+}
+
+div.container{
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.alerta{
+    font-weight: bold;
+    text-align: center;
+    color:#ff0e0e ;
+}

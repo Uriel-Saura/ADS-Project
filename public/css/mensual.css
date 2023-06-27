@@ -1,0 +1,16 @@
+
+body{
+    font-family: sans-serif;
+}
+
+div.container{
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+input.boton{
+    color: #fff;
+    background-color: #51aebf;
+    align-items: center;
+}

@@ -15,7 +15,7 @@
                     obra y tengan a diferentes representantes, con esto se podran subir reportes y 
                     con esto minimizando el error humano en las acciones automatizadas del sistema,</p>
                 <div class="button">
-                    <a href="{{url('login/')}}">Iniciar seson</a>
+                    <a href="{{url('login/')}}">Iniciar sesion</a>
                 </div>
         </div>
     </section>

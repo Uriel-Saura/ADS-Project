@@ -32,18 +32,18 @@
             <span class="tooltip">Catalogo</span>
           </li>
          <li>
-           <a href="#">
+           <a href="{{url('form/')}}">
             <i class='bx bxs-circle'></i>
-             <span class="links_name"></span>
+             <span class="links_name">Reporte diario</span>
            </a>
-           <span class="tooltip"></span>
+           <span class="tooltip">Reporte diario</span>
          </li>
          <li>
-           <a href="#">
+           <a href="{{url('global/')}}">
             <i class='bx bxs-circle'></i>
-             <span class="links_name"></span>
+             <span class="links_name">Reporte global</span>
            </a>
-           <span class="tooltip"></span>
+           <span class="tooltip">Reporte global</span>
          </li>
          <li>
            <a href="#">
